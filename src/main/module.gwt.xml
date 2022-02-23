@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><module rename-to="charba_issue_gwt">
+
+    <!-- Configuring logging (must be in first position) -->
+    <inherits name="com.google.gwt.logging.Logging"/>
+    <set-property name="gwt.logging.enabled" value="TRUE"/>
+    <set-property name="gwt.logging.logLevel" value="FINEST"/>
+    <set-property name="gwt.logging.consoleHandler" value="ENABLED"/>
+
+    <!-- Speeding up GWT compilation time in development mode -->
+    <set-property name="user.agent" value="safari"/> <!-- to make only 1 permutation for testing with Chrome -->
+    <set-property name="jre.checks.checkLevel" value="MINIMAL"/>
+
+    <!-- Specify the app entry point class. -->
+    <entry-point class="issue.CharbaIssue"/>
+
+    <inherits name="org.pepstock.charba.Charba"/>
+    <inherits name="elemental2.dom.Dom"/>
+
+    <source path="issue"/>
+
+    <public path="public"/>
+
+</module>

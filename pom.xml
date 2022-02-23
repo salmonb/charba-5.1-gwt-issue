@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>salmonb</groupId>
+    <artifactId>charba-issue</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <packaging>gwt-app</packaging>
+
+    <properties>
+        <!-- java version -->
+        <java.version>11</java.version>
+        <java.level>${java.version}</java.level>
+        <gwt.sourceLevel>1.${java.version}</gwt.sourceLevel>
+
+        <!-- Applying compiler settings -->
+        <maven.compiler.source>${java.level}</maven.compiler.source>
+        <maven.compiler.target>${java.level}</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <gwt.version>2.9.0</gwt.version>
+        <plugin.gwt.version>1.0.0</plugin.gwt.version>
+
+        <!-- Setting the GWT plugin configuration parameters -->
+        <plugin.gwt.param.module>charba-issue-gwt</plugin.gwt.param.module>
+        <!-- Changing parameters to speed up compilation time while in development -->
+        <plugin.gwt.param.draftCompile>true</plugin.gwt.param.draftCompile>
+        <plugin.gwt.param.optimize>0</plugin.gwt.param.optimize>
+        <!-- Avoiding size consuming META-INF/maven/** coming dependencies (useless for this artifact) -->
+        <plugin.jar.param.addMavenDescriptor>false</plugin.jar.param.addMavenDescriptor>
+    </properties>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>org.pepstock</groupId>
+            <artifactId>charba</artifactId>
+            <version>5.1-gwt</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.pepstock</groupId>
+            <artifactId>charba</artifactId>
+            <version>5.1-gwt</version>
+            <classifier>sources</classifier>
+        </dependency>
+
+        <dependency>
+            <artifactId>gwt-user</artifactId>
+            <groupId>com.google.gwt</groupId>
+            <version>${gwt.version}</version>
+        </dependency>
+
+        <dependency>
+            <artifactId>gwt-dev</artifactId>
+            <groupId>com.google.gwt</groupId>
+            <version>${gwt.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.elemental2</groupId>
+            <artifactId>elemental2-dom</artifactId>
+            <version>1.1.0</version>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+
+        <plugins>
+
+            <plugin>
+                <groupId>net.ltgt.gwt.maven</groupId>
+                <artifactId>gwt-maven-plugin</artifactId>
+                <version>${plugin.gwt.version}</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <moduleName>${plugin.gwt.param.module}</moduleName>
+                    <failOnError>true</failOnError>
+                    <draftCompile>${plugin.gwt.param.draftCompile}</draftCompile>
+                    <optimize>${plugin.gwt.param.optimize}</optimize>
+                    <sourceLevel>${gwt.sourceLevel}</sourceLevel>
+                </configuration>
+            </plugin>
+
+        </plugins>
+
+    </build>
+</project>

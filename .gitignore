@@ -1,0 +1,13 @@
+### Maven
+target/
+
+### JetBrains IntelliJ IDEA
+/out/
+
+# User-specific stuff:
+.idea/*
+
+## File-based project format:
+*.ipr
+*.iws
+*.iml
